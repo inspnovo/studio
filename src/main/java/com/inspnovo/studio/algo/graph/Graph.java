@@ -12,7 +12,7 @@ public interface Graph {
 
     boolean isDirected();
 
-    void addEdge(int v, int w, Comparable weight);
+    void addEdge(int v, int w, Double weight);
 
     default void addEdge(Edge edge){
         if(null == edge){

@@ -32,7 +32,7 @@ public class SparseGraph implements Graph{
      * @param v vertex v
      * @param w vertex w
      */
-    public void addEdge(int v, int w, Comparable weight){
+    public void addEdge(int v, int w, Double weight){
         if(v < 0 || v >= numOfVertex || w < 0 || w > numOfVertex){
             throw new IllegalArgumentException("invalid vertext index");
         }

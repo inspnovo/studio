@@ -13,7 +13,7 @@ public class Prim {
     private Graph graph;
     private boolean[] marked;
     private List<Edge> edgeList;
-    // 使用最小索引堆进行最小边的跟踪
+    // 使用最小索引堆进行最小边的跟踪, 记录到某个顶点的最短边
     private IndexMinHeap heap;
 
     public Prim(Graph graph){

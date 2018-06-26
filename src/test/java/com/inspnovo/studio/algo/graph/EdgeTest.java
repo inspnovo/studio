@@ -22,7 +22,7 @@ public class EdgeTest {
             edge.other(2);
             fail("the other method should not take the vertex index out of the edge");
         }catch (IllegalArgumentException ex){
-
+            // should throw ex
         }
     }
 
@@ -36,17 +36,17 @@ public class EdgeTest {
         heap.offer(new Edge(2, 5, 1.9));
         heap.offer(new Edge(3, 6, 2.7));
         Edge min = (Edge)heap.pull();
-        assertEquals(1.2, min.getWeight());
+        assertEquals(0, min.getWeight().compareTo(1.2));
         min = (Edge)heap.pull();
-        assertEquals(1.5, min.getWeight());
+        assertEquals(0, min.getWeight().compareTo(1.5));
         min = (Edge)heap.pull();
-        assertEquals(1.8, min.getWeight());
+        assertEquals(0, min.getWeight().compareTo(1.8));
         min = (Edge)heap.pull();
-        assertEquals(1.9, min.getWeight());
+        assertEquals(0, min.getWeight().compareTo(1.9));
         min = (Edge)heap.pull();
-        assertEquals(2.3, min.getWeight());
+        assertEquals(0, min.getWeight().compareTo(2.3));
         min = (Edge)heap.pull();
-        assertEquals(2.7, min.getWeight());
+        assertEquals(0, min.getWeight().compareTo(2.7));
         min = (Edge)heap.pull();
         assertNull(min);
     }
