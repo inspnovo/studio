@@ -12,6 +12,8 @@ public class SparseGraph implements Graph{
     private int numOfEdge;
     private List<Edge>[] graph;
     private boolean directed = false;
+    // 记录每个顶点的入度
+    private int[] indegree;
 
     public SparseGraph(int numOfVertex){
         this(numOfVertex, false);
@@ -23,6 +25,7 @@ public class SparseGraph implements Graph{
         this.directed = false;
         for (int i = 0; i < this.numOfVertex; i++) {
             this.graph[i] =  new ArrayList<>();
+            this.indegree[i] = 0;
         }
         this.directed = isDirected;
     }
@@ -38,9 +41,11 @@ public class SparseGraph implements Graph{
         }
         // 此处不做是否已有边的判断，考虑遍历的性能损耗
         graph[v].add(new Edge(v, w, weight));
+        indegree[w]++;
         if(!directed){
             //如果是无向图，则反向也需要链接
             graph[w].add(new Edge(w, v, weight));
+            indegree[v]++;
         }
         numOfEdge++;
     }

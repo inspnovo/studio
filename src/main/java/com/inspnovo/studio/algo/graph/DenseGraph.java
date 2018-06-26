@@ -10,6 +10,8 @@ public class DenseGraph implements Graph {
     private int numOfEdge;
     private Edge[][] graph;
     private boolean directed = false;
+    // 记录每个顶点的入度
+    private int[] indegree;
 
     public DenseGraph(int numOfVertex){
         this(numOfVertex, false);
@@ -18,10 +20,11 @@ public class DenseGraph implements Graph {
     public DenseGraph(int numOfVertex, boolean isDirected){
         this.numOfVertex = numOfVertex;
         this.graph = new Edge[numOfVertex][];
+        this.indegree = new int[numOfVertex];
         this.directed = false;
         for (int i = 0; i < this.numOfVertex; i++) {
             this.graph[i] =  new Edge[numOfVertex];
-
+            this.indegree[i] = 0;
         }
         this.directed = isDirected;
     }
@@ -39,9 +42,11 @@ public class DenseGraph implements Graph {
             return;
         }
         graph[v][w] = new Edge(v, w, weight);
+        indegree[w]++;
         if(!directed){
             //如果是无向图，则反向也需要链接
             graph[w][v] = new Edge(w, v, weight);
+            indegree[v]++;
         }
         numOfEdge++;
 
