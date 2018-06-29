@@ -10,6 +10,7 @@ import java.util.Stack;
 /**
  * 基准的Bellman Ford实现，graph中可以存在负权边，但不能有环
  * 对每个顶点进行numOfVertex-1轮松弛
+ * refer: [Bellman–Ford algorithm](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm)
  */
 public class BellmanFordPathFinder {
 
